@@ -4,13 +4,12 @@ extends CharacterBody2D
 @export var STEP_SIZE = Vector2(16, 10)
 var animation_manager : AnimatedSprite2D
 
-@export var starting_pos : Vector2
 var in_water = false
 var my_log : MyLog
 
 func _ready() -> void:
 	animation_manager = $sprite
-	starting_pos = position
+	GameEnv.starting_pos = position
 	GameEnv.reset_game.connect(reset)
 	GameEnv.level_up.connect(reset)
 	GameEnv.frog = self
@@ -46,13 +45,15 @@ func _process(delta: float) -> void:
 	check_drowned()
 
 func get_hit():
+	print("Got hit! ow!")
 	die()
 
 func die():
+	print("die!")
 	GameEnv.reset()
 
 func reset():
-	position = starting_pos
+	position = GameEnv.starting_pos
 	in_water = false
 
 func _on_frog_butt_area_entered(area: Area2D) -> void:
@@ -82,10 +83,10 @@ func remove_log(log : MyLog):
 
 func check_drowned():
 	if in_water and my_log == null:
-		GameEnv.reset()
+		die()
 
 func check_out_of_bounds():
 	if position.x > GameEnv.game.right_edge:
-		GameEnv.reset()
+		die()
 	if position.x < GameEnv.game.left_edge:
-		GameEnv.reset()
+		die()

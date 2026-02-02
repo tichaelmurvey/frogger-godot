@@ -9,6 +9,7 @@ func _ready() -> void:
 	GameEnv.reset_game.connect(reset)
 
 func _physics_process(delta: float) -> void:
+	# print("car physics process")
 	var collisions = move_and_collide(velocity*GameEnv.game_speed*delta)
 
 	if collisions and collisions.get_collider() is Frog:
@@ -20,4 +21,4 @@ func _physics_process(delta: float) -> void:
 		position.x = GameEnv.game.right_edge
 
 func reset():
-	pass
+	velocity = Vector2(SPEED, 0)
