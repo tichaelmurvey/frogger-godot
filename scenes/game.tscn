@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
@@ -34,153 +34,153 @@ size = Vector2(32, 10)
 atlas = ExtResource("14_trtic")
 region = Rect2(110, 1, 16, 11)
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" unique_id=994504564]
 script = ExtResource("1_ryrav")
 right_edge = 150
 left_edge = -150
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=765608945]
 position = Vector2(16, -62)
 zoom = Vector2(4, 3.5)
 metadata/_edit_lock_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1888481592]
 tile_map_data = PackedByteArray("AAD8//f/AAACAAUAAAD9//f/AAACAAUAAAD9//T/AAACAAUAAAD9//X/AAACAAUAAAD9//b/AAACAAUAAAD8//T/AAACAAUAAAD8//X/AAACAAUAAAD8//b/AAACAAUAAAD+//T/AAACAAUAAAD+//X/AAACAAUAAAD+//b/AAACAAUAAAD+//f/AAACAAUAAAD///T/AAACAAUAAAD///X/AAACAAUAAAD///b/AAACAAUAAAD///f/AAACAAUAAAAAAPT/AAACAAUAAAAAAPX/AAACAAUAAAAAAPb/AAACAAUAAAAAAPf/AAACAAUAAAABAPT/AAACAAUAAAABAPX/AAACAAUAAAABAPb/AAACAAUAAAABAPf/AAACAAUAAAACAPT/AAACAAUAAAACAPX/AAACAAUAAAACAPb/AAACAAUAAAACAPf/AAACAAUAAAADAPT/AAACAAUAAAADAPX/AAACAAUAAAADAPb/AAACAAUAAAADAPf/AAACAAUAAAAEAPT/AAACAAUAAAAEAPX/AAACAAUAAAAEAPb/AAACAAUAAAAEAPf/AAACAAUAAAD8//j/AAACAAUAAAD9//j/AAACAAUAAAD+//j/AAACAAUAAAD///j/AAACAAUAAAAAAPj/AAACAAUAAAABAPj/AAACAAUAAAACAPj/AAACAAUAAAADAPj/AAACAAUAAAAEAPj/AAACAAUAAAD8//P/AAACAAUAAAD9//P/AAADABMAAAD+//P/AAACAAUAAAD///P/AAADABMAAAAAAPP/AAACAAUAAAABAPP/AAADABMAAAACAPP/AAACAAUAAAADAPP/AAADABMAAAAEAPP/AAACAAUAAAD8//n/AAADABEAADD9//n/AAADABEAADD+//n/AAADABEAADD///n/AAADABEAADAAAPn/AAADABEAADABAPn/AAADABEAADACAPn/AAADABEAADADAPn/AAADABEAADAEAPn/AAADABEAADD8//r/AAACAA0AAAD8//v/AAACAA0AAAD8//z/AAACAA0AAAD8//3/AAACAA0AAAD8//7/AAACAA0AAAD8////AAACAA0AAAD9//r/AAACAA0AAAD9//v/AAACAA0AAAD9//z/AAACAA0AAAD9//3/AAACAA0AAAD9//7/AAACAA0AAAD9////AAACAA0AAAD+//r/AAACAA0AAAD+//v/AAACAA0AAAD+//z/AAACAA0AAAD+//3/AAACAA0AAAD+//7/AAACAA0AAAD+////AAACAA0AAAD///r/AAACAA0AAAD///v/AAACAA0AAAD///z/AAACAA0AAAD///3/AAACAA0AAAD///7/AAACAA0AAAD/////AAACAA0AAAAAAPr/AAACAA0AAAAAAPv/AAACAA0AAAAAAPz/AAACAA0AAAAAAP3/AAACAA0AAAAAAP7/AAACAA0AAAAAAP//AAACAA0AAAABAPr/AAACAA0AAAABAPv/AAACAA0AAAABAPz/AAACAA0AAAABAP3/AAACAA0AAAABAP7/AAACAA0AAAABAP//AAACAA0AAAACAPr/AAACAA0AAAACAPv/AAACAA0AAAACAPz/AAACAA0AAAACAP3/AAACAA0AAAACAP7/AAACAA0AAAACAP//AAACAA0AAAADAPr/AAACAA0AAAADAPv/AAACAA0AAAADAPz/AAACAA0AAAADAP3/AAACAA0AAAADAP7/AAACAA0AAAADAP//AAACAA0AAAAEAPr/AAACAA0AAAAEAPv/AAACAA0AAAAEAPz/AAACAA0AAAAEAP3/AAACAA0AAAAEAP7/AAACAA0AAAAEAP//AAACAA0AAAD8/wAAAAADABEAAAD9/wAAAAADABEAAAD+/wAAAAADABEAAAD//wAAAAADABEAAAAAAAAAAAADABEAAAABAAAAAAADABEAAAACAAAAAAADABEAAAADAAAAAAADABEAAAAEAAAAAAADABEAAAD8/wEAAAADABMAAAD9/wEAAAADABMAAAD+/wEAAAADABMAAAD//wEAAAADABMAAAAAAAEAAAADABMAAAABAAEAAAADABMAAAACAAEAAAADABMAAAADAAEAAAADABMAAAAEAAEAAAADABMAAAD8/wIAAAADABMAAAD9/wIAAAADABMAAAD+/wIAAAADABMAAAD//wIAAAADABMAAAAAAAIAAAADABMAAAABAAIAAAADABMAAAACAAIAAAADABMAAAADAAIAAAADABMAAAAEAAIAAAADABMAAAA=")
 tile_set = SubResource("TileSet_ir15t")
 metadata/_edit_lock_ = true
 
-[node name="terrains" type="Node2D" parent="."]
+[node name="terrains" type="Node2D" parent="." unique_id=1485939934]
 position = Vector2(-128, -130)
 metadata/_edit_lock_ = true
 
-[node name="water_tile" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile" parent="terrains" unique_id=380120108 instance=ExtResource("13_kvuet")]
 
-[node name="water_tile2" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile2" parent="terrains" unique_id=819965664 instance=ExtResource("13_kvuet")]
 position = Vector2(64, 0)
 
-[node name="water_tile3" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile3" parent="terrains" unique_id=2055789164 instance=ExtResource("13_kvuet")]
 position = Vector2(256, 0)
 
-[node name="water_tile4" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile4" parent="terrains" unique_id=623357204 instance=ExtResource("13_kvuet")]
 position = Vector2(192, 0)
 
-[node name="water_tile5" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile5" parent="terrains" unique_id=1836268993 instance=ExtResource("13_kvuet")]
 position = Vector2(128, 0)
 
-[node name="water_tile6" parent="terrains" instance=ExtResource("13_kvuet")]
+[node name="water_tile6" parent="terrains" unique_id=2010978277 instance=ExtResource("13_kvuet")]
 
 [node name="CollisionShape2D" parent="terrains/water_tile6" index="0"]
 position = Vector2(144, 35)
 shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="enemies" type="Node2D" parent="."]
+[node name="enemies" type="Node2D" parent="." unique_id=690747640]
 
-[node name="car" parent="enemies" instance=ExtResource("4_7jktm")]
+[node name="car" parent="enemies" unique_id=2129196380 instance=ExtResource("4_7jktm")]
 position = Vector2(-81, -10)
 
-[node name="logs" type="Node2D" parent="."]
+[node name="logs" type="Node2D" parent="." unique_id=1102949064]
 
-[node name="row1" type="Node2D" parent="logs"]
+[node name="row1" type="Node2D" parent="logs" unique_id=1815710981]
 
-[node name="log" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log" parent="logs/row1" unique_id=458262536 instance=ExtResource("11_kvpfn")]
 position = Vector2(-64, -80)
 
-[node name="log2" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log2" parent="logs/row1" unique_id=939723279 instance=ExtResource("11_kvpfn")]
 position = Vector2(0, -80)
 
-[node name="log3" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log3" parent="logs/row1" unique_id=1992608757 instance=ExtResource("11_kvpfn")]
 position = Vector2(-32, -80)
 
-[node name="log4" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log4" parent="logs/row1" unique_id=722154046 instance=ExtResource("11_kvpfn")]
 position = Vector2(64, -80)
 
-[node name="log5" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log5" parent="logs/row1" unique_id=1549137500 instance=ExtResource("11_kvpfn")]
 position = Vector2(128, -80)
 
-[node name="log6" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+[node name="log6" parent="logs/row1" unique_id=412832761 instance=ExtResource("11_kvpfn")]
 position = Vector2(96, -80)
 
-[node name="row2" type="Node2D" parent="logs"]
+[node name="row2" type="Node2D" parent="logs" unique_id=1000344093]
 
-[node name="log_medium" parent="logs/row2" instance=ExtResource("12_trtic")]
+[node name="log_medium" parent="logs/row2" unique_id=1020190957 instance=ExtResource("12_trtic")]
 position = Vector2(0, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium2" parent="logs/row2" instance=ExtResource("12_trtic")]
+[node name="log_medium2" parent="logs/row2" unique_id=78497126 instance=ExtResource("12_trtic")]
 position = Vector2(-64, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium3" parent="logs/row2" instance=ExtResource("12_trtic")]
+[node name="log_medium3" parent="logs/row2" unique_id=1588919591 instance=ExtResource("12_trtic")]
 position = Vector2(160, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium4" parent="logs/row2" instance=ExtResource("12_trtic")]
+[node name="log_medium4" parent="logs/row2" unique_id=264229942 instance=ExtResource("12_trtic")]
 position = Vector2(96, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="row3" type="Node2D" parent="logs"]
+[node name="row3" type="Node2D" parent="logs" unique_id=1990026890]
 
-[node name="log_very_long" parent="logs/row3" instance=ExtResource("13_ir15t")]
+[node name="log_very_long" parent="logs/row3" unique_id=924055339 instance=ExtResource("13_ir15t")]
 position = Vector2(-32, -100)
 SPEED = -20
 
-[node name="row4" type="Node2D" parent="logs"]
+[node name="row4" type="Node2D" parent="logs" unique_id=364015875]
 
-[node name="log" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log" parent="logs/row4" unique_id=314647103 instance=ExtResource("11_kvpfn")]
 position = Vector2(-64, -110)
 SPEED = -15
 
-[node name="log2" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log2" parent="logs/row4" unique_id=1596359650 instance=ExtResource("11_kvpfn")]
 position = Vector2(0, -110)
 SPEED = -15
 
-[node name="log3" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log3" parent="logs/row4" unique_id=55601344 instance=ExtResource("11_kvpfn")]
 position = Vector2(-32, -110)
 SPEED = -15
 
-[node name="log4" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log4" parent="logs/row4" unique_id=144700338 instance=ExtResource("11_kvpfn")]
 position = Vector2(64, -110)
 SPEED = -15
 
-[node name="log5" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log5" parent="logs/row4" unique_id=783779838 instance=ExtResource("11_kvpfn")]
 position = Vector2(128, -110)
 SPEED = -15
 
-[node name="log6" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+[node name="log6" parent="logs/row4" unique_id=1073578952 instance=ExtResource("11_kvpfn")]
 position = Vector2(96, -110)
 SPEED = -15
 
-[node name="row5" type="Node2D" parent="logs"]
+[node name="row5" type="Node2D" parent="logs" unique_id=952131042]
 
-[node name="log_long" parent="logs/row5" instance=ExtResource("14_ca42v")]
+[node name="log_long" parent="logs/row5" unique_id=441077660 instance=ExtResource("14_ca42v")]
 position = Vector2(64, -120)
 SPEED = -40
 WIDTH_OFFSET = 30
 
-[node name="log_long2" parent="logs/row5" instance=ExtResource("14_ca42v")]
+[node name="log_long2" parent="logs/row5" unique_id=1677883188 instance=ExtResource("14_ca42v")]
 position = Vector2(-64, -120)
 SPEED = -40
 WIDTH_OFFSET = 30
 
-[node name="frog" parent="." instance=ExtResource("2_feb5d")]
+[node name="frog" parent="." unique_id=975697631 instance=ExtResource("2_feb5d")]
 position = Vector2(-37, 1)
 
-[node name="lilypad" type="Area2D" parent="."]
+[node name="lilypad" type="Area2D" parent="." unique_id=30781978]
 position = Vector2(17, -124)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("14_ir15t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lilypad"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lilypad" unique_id=1650788996]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_ir15t")
 
-[node name="Sprite2D" type="Sprite2D" parent="lilypad"]
+[node name="Sprite2D" type="Sprite2D" parent="lilypad" unique_id=1089074238]
 position = Vector2(-1.090909, -0.75)
 scale = Vector2(0.8636364, 0.8636364)
 texture = SubResource("AtlasTexture_ca42v")

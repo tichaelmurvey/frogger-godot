@@ -3,6 +3,7 @@ extends Node
 var frog_scene = preload("res://scenes/enemies/frog.tscn")
 var level = 1
 @export var INITIAL_GAME_SPEED = 1
+var DEATH_TIME = 1.0
 var game_speed = 0
 var starting_pos : Vector2
 signal reset_game
@@ -15,12 +16,14 @@ func _ready() -> void:
 
 func reset():
 	GameEnv.game_speed = 0.1
-	await get_tree().create_timer(1.0).timeout
+	in_freeze = true
+	await get_tree().create_timer(DEATH_TIME).timeout
+	in_freeze = false
+	reset_game.emit()
 	frog.queue_free()
 	frog = frog_scene.instantiate()
 	game.add_child(frog)
 	GameEnv.game_speed = INITIAL_GAME_SPEED
-	reset_game.emit()
 
 func beat_level():
 	print("level up!")

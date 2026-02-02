@@ -2,6 +2,7 @@ class_name Frog
 extends CharacterBody2D
 
 @export var STEP_SIZE = Vector2(16, 10)
+@export var particles:GPUParticles2D
 var animation_manager : AnimatedSprite2D
 
 var in_water = false
@@ -16,6 +17,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var movement = Vector2.ZERO
+	
+	if GameEnv.in_freeze:
+		return
 	
 	# Handle player input
 	var input_direction = Vector2.ZERO
@@ -46,10 +50,12 @@ func _process(delta: float) -> void:
 
 func get_hit():
 	print("Got hit! ow!")
+	particles.emitting = true
 	die()
 
 func die():
 	print("die!")
+	
 	GameEnv.reset()
 
 func reset():
