@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene load_steps=19 format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://djbfr6r0lea4l" path="res://scenes/enemies/car.tscn" id="4_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dncfit7dgyodg" path="res://assets/sprites/frogger_background.png" id="5_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bohe0v4p4iqt0" path="res://scenes/logs/log.tscn" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://bxjy8mf3qdsod" path="res://scenes/haze.gd" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cdy4i1j63q8t5" path="res://scenes/logs/log_medium.tscn" id="12_trtic"]
 [ext_resource type="PackedScene" uid="uid://dqk8ppfj3an7r" path="res://scenes/logs/log_very_long.tscn" id="13_ir15t"]
 [ext_resource type="PackedScene" uid="uid://5lill0vmn1re" path="res://scenes/water_tile.tscn" id="13_kvuet"]
@@ -197,7 +198,6 @@ texture = SubResource("AtlasTexture_ca42v")
 [node name="overlay" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="overlay"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,7 +205,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="overlay/Control"]
+[node name="haze" type="Panel" parent="overlay/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,5 +214,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
+script = ExtResource("12_dinhu")
 
 [editable path="terrains/water_tile6"]
