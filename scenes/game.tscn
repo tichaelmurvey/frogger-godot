@@ -168,6 +168,12 @@ position = Vector2(-32, -50)
 [node name="truck3" parent="enemies" instance=ExtResource("9_0tnpc")]
 position = Vector2(64, -60)
 
+[node name="right_car_alt5" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(-96, -30)
+
+[node name="left_car4" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(96, -50)
+
 [node name="logs" type="Node2D" parent="."]
 
 [node name="row1" type="Node2D" parent="logs"]

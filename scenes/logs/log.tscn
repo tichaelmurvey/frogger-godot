@@ -8,7 +8,7 @@ atlas = ExtResource("1_rewus")
 region = Rect2(1, 13, 16, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ko8"]
-size = Vector2(8, 8)
+size = Vector2(12, 8)
 
 [node name="log" type="Area2D"]
 collision_layer = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxbtiphfik0fm"]
+[gd_scene load_steps=13 format=3 uid="uid://dxbtiphfik0fm"]
 
 [ext_resource type="Script" uid="uid://co7sujndmsfyk" path="res://scenes/enemies/frog.gd" id="1_kosjv"]
 [ext_resource type="Texture2D" uid="uid://dglndmqkfy177" path="res://assets/sprites/frogger_frog.png" id="1_whe2r"]
@@ -73,10 +73,23 @@ scale_min = 2.0
 scale_max = 2.0
 color = Color(0.43137255, 0.6117647, 0.25882354, 1)
 
-[node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("particles", "sprite")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d72w0"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 180.0
+initial_velocity_min = 51.51
+initial_velocity_max = 98.72
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.038549747, 0.25805673, 0.5562779, 1)
+
+[node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("particles", "water_particles", "sprite")]
 collision_mask = 0
 script = ExtResource("1_kosjv")
 particles = NodePath("GPUParticles2D")
+water_particles = NodePath("water_particles")
 sprite = NodePath("sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -104,6 +117,14 @@ amount = 100
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_kosjv")
+
+[node name="water_particles" type="GPUParticles2D" parent="."]
+position = Vector2(16, 5)
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_d72w0")
 
 [node name="step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d72w0")
