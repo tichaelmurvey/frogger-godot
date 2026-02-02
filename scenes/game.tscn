@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene load_steps=35 format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dg6bhcdtc2474" path="res://scenes/enemies/right_car_alt.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://4vcr3pmdoljc" path="res://scenes/enemies/truck.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bohe0v4p4iqt0" path="res://scenes/logs/log.tscn" id="11_kvpfn"]
-[ext_resource type="Script" path="res://scenes/haze.gd" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://bxjy8mf3qdsod" path="res://scenes/haze.gd" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cdy4i1j63q8t5" path="res://scenes/logs/log_medium.tscn" id="12_trtic"]
 [ext_resource type="AudioStream" uid="uid://dvjcyhrj2x4fn" path="res://assets/sfx/frogtality.tres" id="13_ca42v"]
 [ext_resource type="PackedScene" uid="uid://dqk8ppfj3an7r" path="res://scenes/logs/log_very_long.tscn" id="13_ir15t"]
@@ -20,6 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://dglndmqkfy177" path="res://assets/sprites/frogger_frog.png" id="14_trtic"]
 [ext_resource type="Script" uid="uid://ce53v2fyqc7n7" path="res://scenes/death_sound.gd" id="15_ca42v"]
 [ext_resource type="AudioStream" uid="uid://ch3gibuund7kf" path="res://assets/sfx/waterkill.mp3" id="15_ir15t"]
+[ext_resource type="AudioStream" uid="uid://dgtjmsfexjku0" path="res://assets/sfx/In a Heartbeat.mp3" id="21_5newe"]
+[ext_resource type="AudioStream" uid="uid://b12y8ckvfpmlx" path="res://assets/sfx/lilypad.mp3" id="22_pl11u"]
+[ext_resource type="AudioStream" uid="uid://bthyqyauje8y6" path="res://assets/sfx/levelup.mp3" id="23_bhx41"]
+[ext_resource type="AudioStream" uid="uid://cxr5sa8pnt55r" path="res://assets/sfx/frogtacular.mp3" id="24_qnb83"]
+[ext_resource type="Script" uid="uid://jiqda83fvtq1" path="res://scenes/levelup.gd" id="25_sww3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("5_ryrav")
@@ -63,49 +68,54 @@ streams_count = 2
 stream_0/stream = ExtResource("15_ir15t")
 stream_1/stream = ExtResource("13_ca42v")
 
-; [node name="game" type="Node2D"]
-[node name="game" type="Node2D" unique_id=1998023553 node_paths=PackedStringArray("camera")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_suyxu"]
+streams_count = 3
+stream_0/stream = ExtResource("22_pl11u")
+stream_1/stream = ExtResource("23_bhx41")
+stream_2/stream = ExtResource("24_qnb83")
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_ryrav")
 right_edge = 150
 left_edge = -150
 camera = NodePath("Camera2D")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=431418089]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, -62)
 zoom = Vector2(4, 3.5)
 metadata/_edit_lock_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1971814640]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8//f/AAACAAUAAAD9//f/AAACAAUAAAD9//T/AAACAAUAAAD9//X/AAACAAUAAAD9//b/AAACAAUAAAD8//T/AAACAAUAAAD8//X/AAACAAUAAAD8//b/AAACAAUAAAD+//T/AAACAAUAAAD+//X/AAACAAUAAAD+//b/AAACAAUAAAD+//f/AAACAAUAAAD///T/AAACAAUAAAD///X/AAACAAUAAAD///b/AAACAAUAAAD///f/AAACAAUAAAAAAPT/AAACAAUAAAAAAPX/AAACAAUAAAAAAPb/AAACAAUAAAAAAPf/AAACAAUAAAABAPT/AAACAAUAAAABAPX/AAACAAUAAAABAPb/AAACAAUAAAABAPf/AAACAAUAAAACAPT/AAACAAUAAAACAPX/AAACAAUAAAACAPb/AAACAAUAAAACAPf/AAACAAUAAAADAPT/AAACAAUAAAADAPX/AAACAAUAAAADAPb/AAACAAUAAAADAPf/AAACAAUAAAAEAPT/AAACAAUAAAAEAPX/AAACAAUAAAAEAPb/AAACAAUAAAAEAPf/AAACAAUAAAD8//j/AAACAAUAAAD9//j/AAACAAUAAAD+//j/AAACAAUAAAD///j/AAACAAUAAAAAAPj/AAACAAUAAAABAPj/AAACAAUAAAACAPj/AAACAAUAAAADAPj/AAACAAUAAAAEAPj/AAACAAUAAAD8//P/AAACAAUAAAD9//P/AAADABMAAAD+//P/AAACAAUAAAD///P/AAADABMAAAAAAPP/AAACAAUAAAABAPP/AAADABMAAAACAPP/AAACAAUAAAADAPP/AAADABMAAAAEAPP/AAACAAUAAAD8//n/AAADABEAADD9//n/AAADABEAADD+//n/AAADABEAADD///n/AAADABEAADAAAPn/AAADABEAADABAPn/AAADABEAADACAPn/AAADABEAADADAPn/AAADABEAADAEAPn/AAADABEAADD8//r/AAACAA0AAAD8//v/AAACAA0AAAD8//z/AAACAA0AAAD8//3/AAACAA0AAAD8//7/AAACAA0AAAD8////AAACAA0AAAD9//r/AAACAA0AAAD9//v/AAACAA0AAAD9//z/AAACAA0AAAD9//3/AAACAA0AAAD9//7/AAACAA0AAAD9////AAACAA0AAAD+//r/AAACAA0AAAD+//v/AAACAA0AAAD+//z/AAACAA0AAAD+//3/AAACAA0AAAD+//7/AAACAA0AAAD+////AAACAA0AAAD///r/AAACAA0AAAD///v/AAACAA0AAAD///z/AAACAA0AAAD///3/AAACAA0AAAD///7/AAACAA0AAAD/////AAACAA0AAAAAAPr/AAACAA0AAAAAAPv/AAACAA0AAAAAAPz/AAACAA0AAAAAAP3/AAACAA0AAAAAAP7/AAACAA0AAAAAAP//AAACAA0AAAABAPr/AAACAA0AAAABAPv/AAACAA0AAAABAPz/AAACAA0AAAABAP3/AAACAA0AAAABAP7/AAACAA0AAAABAP//AAACAA0AAAACAPr/AAACAA0AAAACAPv/AAACAA0AAAACAPz/AAACAA0AAAACAP3/AAACAA0AAAACAP7/AAACAA0AAAACAP//AAACAA0AAAADAPr/AAACAA0AAAADAPv/AAACAA0AAAADAPz/AAACAA0AAAADAP3/AAACAA0AAAADAP7/AAACAA0AAAADAP//AAACAA0AAAAEAPr/AAACAA0AAAAEAPv/AAACAA0AAAAEAPz/AAACAA0AAAAEAP3/AAACAA0AAAAEAP7/AAACAA0AAAAEAP//AAACAA0AAAD8/wAAAAADABEAAAD9/wAAAAADABEAAAD+/wAAAAADABEAAAD//wAAAAADABEAAAAAAAAAAAADABEAAAABAAAAAAADABEAAAACAAAAAAADABEAAAADAAAAAAADABEAAAAEAAAAAAADABEAAAD8/wEAAAADABMAAAD9/wEAAAADABMAAAD+/wEAAAADABMAAAD//wEAAAADABMAAAAAAAEAAAADABMAAAABAAEAAAADABMAAAACAAEAAAADABMAAAADAAEAAAADABMAAAAEAAEAAAADABMAAAD8/wIAAAADABMAAAD9/wIAAAADABMAAAD+/wIAAAADABMAAAD//wIAAAADABMAAAAAAAIAAAADABMAAAABAAIAAAADABMAAAACAAIAAAADABMAAAADAAIAAAADABMAAAAEAAIAAAADABMAAAA=")
 tile_set = SubResource("TileSet_ir15t")
 metadata/_edit_lock_ = true
 
-[node name="terrains" type="Node2D" parent="." unique_id=1725231462]
+[node name="terrains" type="Node2D" parent="."]
 position = Vector2(-128, -130)
 metadata/_edit_lock_ = true
 
-[node name="water_tile" parent="terrains" unique_id=266787822 instance=ExtResource("13_kvuet")]
+[node name="water_tile" parent="terrains" instance=ExtResource("13_kvuet")]
 
-[node name="water_tile2" parent="terrains" unique_id=1071937227 instance=ExtResource("13_kvuet")]
+[node name="water_tile2" parent="terrains" instance=ExtResource("13_kvuet")]
 position = Vector2(64, 0)
 
-[node name="water_tile3" parent="terrains" unique_id=1898987171 instance=ExtResource("13_kvuet")]
+[node name="water_tile3" parent="terrains" instance=ExtResource("13_kvuet")]
 position = Vector2(256, 0)
 
-[node name="water_tile4" parent="terrains" unique_id=603655772 instance=ExtResource("13_kvuet")]
+[node name="water_tile4" parent="terrains" instance=ExtResource("13_kvuet")]
 position = Vector2(192, 0)
 
-[node name="water_tile5" parent="terrains" unique_id=74262156 instance=ExtResource("13_kvuet")]
+[node name="water_tile5" parent="terrains" instance=ExtResource("13_kvuet")]
 position = Vector2(128, 0)
 
-[node name="water_tile6" parent="terrains" unique_id=1505132061 instance=ExtResource("13_kvuet")]
+[node name="water_tile6" parent="terrains" instance=ExtResource("13_kvuet")]
 
 [node name="CollisionShape2D" parent="terrains/water_tile6" index="0"]
 position = Vector2(144, 35)
 shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="enemies" type="Node2D" parent="." unique_id=1423453242]
+[node name="enemies" type="Node2D" parent="."]
 
 [node name="car" parent="enemies" instance=ExtResource("4_7jktm")]
 position = Vector2(-96, -10)
@@ -158,115 +168,125 @@ position = Vector2(-32, -50)
 [node name="truck3" parent="enemies" instance=ExtResource("9_0tnpc")]
 position = Vector2(64, -60)
 
-[node name="logs" type="Node2D" parent="." unique_id=913972141]
+[node name="right_car_alt5" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(-96, -30)
 
-[node name="row1" type="Node2D" parent="logs" unique_id=1013843462]
+[node name="left_car4" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(96, -50)
 
-[node name="log" parent="logs/row1" unique_id=283552198 instance=ExtResource("11_kvpfn")]
+[node name="logs" type="Node2D" parent="."]
+
+[node name="row1" type="Node2D" parent="logs"]
+
+[node name="log" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(-64, -80)
 
-[node name="log2" parent="logs/row1" unique_id=2143187785 instance=ExtResource("11_kvpfn")]
+[node name="log2" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(0, -80)
 
-[node name="log3" parent="logs/row1" unique_id=1675720944 instance=ExtResource("11_kvpfn")]
+[node name="log3" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(-32, -80)
 
-[node name="log4" parent="logs/row1" unique_id=181457194 instance=ExtResource("11_kvpfn")]
+[node name="log4" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(64, -80)
 
-[node name="log5" parent="logs/row1" unique_id=86948134 instance=ExtResource("11_kvpfn")]
+[node name="log5" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(128, -80)
 
-[node name="log6" parent="logs/row1" unique_id=767957012 instance=ExtResource("11_kvpfn")]
+[node name="log6" parent="logs/row1" instance=ExtResource("11_kvpfn")]
 position = Vector2(96, -80)
 
-[node name="row2" type="Node2D" parent="logs" unique_id=546722577]
+[node name="row2" type="Node2D" parent="logs"]
 
-[node name="log_medium" parent="logs/row2" unique_id=1722525155 instance=ExtResource("12_trtic")]
+[node name="log_medium" parent="logs/row2" instance=ExtResource("12_trtic")]
 position = Vector2(0, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium2" parent="logs/row2" unique_id=948889475 instance=ExtResource("12_trtic")]
+[node name="log_medium2" parent="logs/row2" instance=ExtResource("12_trtic")]
 position = Vector2(-64, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium3" parent="logs/row2" unique_id=1959627181 instance=ExtResource("12_trtic")]
+[node name="log_medium3" parent="logs/row2" instance=ExtResource("12_trtic")]
 position = Vector2(160, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_medium4" parent="logs/row2" unique_id=1412409877 instance=ExtResource("12_trtic")]
+[node name="log_medium4" parent="logs/row2" instance=ExtResource("12_trtic")]
 position = Vector2(96, -90)
 SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="row3" type="Node2D" parent="logs" unique_id=2140308769]
+[node name="row3" type="Node2D" parent="logs"]
 
-[node name="log_very_long" parent="logs/row3" unique_id=819869806 instance=ExtResource("13_ir15t")]
+[node name="log_very_long" parent="logs/row3" instance=ExtResource("13_ir15t")]
 position = Vector2(-32, -100)
 SPEED = -20
 
-[node name="row4" type="Node2D" parent="logs" unique_id=648037310]
+[node name="log_very_long2" parent="logs/row3" instance=ExtResource("13_ir15t")]
+position = Vector2(160, -100)
+SPEED = -20
 
-[node name="log" parent="logs/row4" unique_id=1973885574 instance=ExtResource("11_kvpfn")]
+[node name="row4" type="Node2D" parent="logs"]
+
+[node name="log" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(-64, -110)
 SPEED = -15
 
-[node name="log2" parent="logs/row4" unique_id=339756185 instance=ExtResource("11_kvpfn")]
+[node name="log2" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(0, -110)
 SPEED = -15
 
-[node name="log3" parent="logs/row4" unique_id=1472577199 instance=ExtResource("11_kvpfn")]
+[node name="log3" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(-32, -110)
 SPEED = -15
 
-[node name="log4" parent="logs/row4" unique_id=556086809 instance=ExtResource("11_kvpfn")]
+[node name="log4" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(64, -110)
 SPEED = -15
 
-[node name="log5" parent="logs/row4" unique_id=1462483641 instance=ExtResource("11_kvpfn")]
+[node name="log5" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(128, -110)
 SPEED = -15
 
-[node name="log6" parent="logs/row4" unique_id=643522437 instance=ExtResource("11_kvpfn")]
+[node name="log6" parent="logs/row4" instance=ExtResource("11_kvpfn")]
 position = Vector2(96, -110)
 SPEED = -15
 
-[node name="row5" type="Node2D" parent="logs" unique_id=952420217]
+[node name="row5" type="Node2D" parent="logs"]
 
-[node name="log_long" parent="logs/row5" unique_id=827478952 instance=ExtResource("14_ca42v")]
+[node name="log_long" parent="logs/row5" instance=ExtResource("14_ca42v")]
 position = Vector2(64, -120)
-SPEED = -40
+SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="log_long2" parent="logs/row5" unique_id=732200631 instance=ExtResource("14_ca42v")]
+[node name="log_long2" parent="logs/row5" instance=ExtResource("14_ca42v")]
 position = Vector2(-64, -120)
-SPEED = -40
+SPEED = 40
 WIDTH_OFFSET = 30
 
-[node name="frog" parent="." unique_id=1635362160 instance=ExtResource("2_feb5d")]
+[node name="frog" parent="." instance=ExtResource("2_feb5d")]
 position = Vector2(-37, 1)
 
-[node name="lilypad" type="Area2D" parent="." unique_id=2024354998]
+[node name="lilypad" type="Area2D" parent="."]
 position = Vector2(17, -124)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("14_ir15t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lilypad" unique_id=286678195]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lilypad"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_ir15t")
 
-[node name="Sprite2D" type="Sprite2D" parent="lilypad" unique_id=165916227]
+[node name="Sprite2D" type="Sprite2D" parent="lilypad"]
 position = Vector2(-1.090909, -0.75)
 scale = Vector2(0.8636364, 0.8636364)
 texture = SubResource("AtlasTexture_ca42v")
 
-[node name="overlay" type="CanvasLayer" parent="." unique_id=220868135]
+[node name="overlay" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="overlay" unique_id=1363625694]
+[node name="Control" type="Control" parent="overlay"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,7 +295,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="haze" type="Panel" parent="overlay/Control" unique_id=722938105]
+[node name="haze" type="Panel" parent="overlay/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -296,5 +316,14 @@ DEATH_TYPE = "CAR"
 stream = SubResource("AudioStreamRandomizer_rysoc")
 script = ExtResource("15_ca42v")
 DEATH_TYPE = "WATER"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_5newe")
+autoplay = true
+parameters/looping = true
+
+[node name="levelup" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_suyxu")
+script = ExtResource("25_sww3w")
 
 [editable path="terrains/water_tile6"]

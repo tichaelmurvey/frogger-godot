@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var STEP_SIZE = Vector2(16, 10)
 @export var particles:GPUParticles2D
+@export var water_particles :GPUParticles2D
 @export var sprite:AnimatedSprite2D
 var animation_manager : AnimatedSprite2D
 
@@ -37,6 +38,7 @@ func _process(delta: float) -> void:
 		input_direction = Vector2.RIGHT
 		animation_manager.animation = "right"
 	if input_direction != Vector2.ZERO:
+		$"step".play()
 		movement = input_direction * STEP_SIZE	
 	
 	# Handle movement on log
@@ -55,6 +57,7 @@ func get_hit():
 	GameEnv.handle_death("CAR")
 
 func drown():
+	water_particles.emitting = true
 	GameEnv.handle_death("WATER")
 
 func die():
