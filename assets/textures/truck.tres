@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cam5x0n1648qp"]
+
+[ext_resource type="Texture2D" uid="uid://ktr54jrwrpsk" path="res://assets/textures/green_car.tres" id="1_wx6r1"]
+
+[resource]
+atlas = ExtResource("1_wx6r1")
+region = Rect2(1, 1, 32, 7)

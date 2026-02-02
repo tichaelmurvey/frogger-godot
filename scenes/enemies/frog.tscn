@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxbtiphfik0fm"]
+
+[ext_resource type="Script" uid="uid://co7sujndmsfyk" path="res://scenes/enemies/frog.gd" id="1_kosjv"]
+[ext_resource type="Texture2D" uid="uid://dglndmqkfy177" path="res://assets/sprites/frogger_frog.png" id="1_whe2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ekd3"]
+size = Vector2(12, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slgur"]
+atlas = ExtResource("1_whe2r")
+region = Rect2(39, 5, 14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byod8"]
+atlas = ExtResource("1_whe2r")
+region = Rect2(58, 5, 14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j38ec"]
+atlas = ExtResource("1_whe2r")
+region = Rect2(20, 5, 14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cyyp"]
+atlas = ExtResource("1_whe2r")
+region = Rect2(1, 5, 14, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd326"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slgur")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byod8")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j38ec")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cyyp")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lohqt"]
+size = Vector2(2, 2)
+
+[node name="frog" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_kosjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 4.5)
+shape = SubResource("RectangleShape2D_6ekd3")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 4.5)
+sprite_frames = SubResource("SpriteFrames_rd326")
+animation = &"up"
+offset = Vector2(0, 0.5)
+
+[node name="frog_butt" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="frog_butt_collider" type="CollisionShape2D" parent="frog_butt"]
+position = Vector2(16, 4.5)
+shape = SubResource("RectangleShape2D_lohqt")
+
+[connection signal="area_entered" from="frog_butt" to="." method="_on_frog_butt_area_entered"]
+[connection signal="area_exited" from="frog_butt" to="." method="_on_frog_butt_area_exited"]

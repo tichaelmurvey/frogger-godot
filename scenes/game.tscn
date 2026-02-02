@@ -1,0 +1,198 @@
+[gd_scene load_steps=17 format=4 uid="uid://jco6gfwscdr1"]
+
+[ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://djbfr6r0lea4l" path="res://scenes/enemies/car.tscn" id="4_7jktm"]
+[ext_resource type="Texture2D" uid="uid://dncfit7dgyodg" path="res://assets/sprites/frogger_background.png" id="5_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dc1rsoaagjs7x" path="res://scenes/enemies/left_car.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://buqdxefyfl0gb" path="res://scenes/enemies/left_car_alt.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://dg6bhcdtc2474" path="res://scenes/enemies/right_car_alt.tscn" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://4vcr3pmdoljc" path="res://scenes/enemies/truck.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bohe0v4p4iqt0" path="res://scenes/logs/log.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cdy4i1j63q8t5" path="res://scenes/logs/log_medium.tscn" id="12_trtic"]
+[ext_resource type="PackedScene" uid="uid://dqk8ppfj3an7r" path="res://scenes/logs/log_very_long.tscn" id="13_ir15t"]
+[ext_resource type="PackedScene" uid="uid://5lill0vmn1re" path="res://scenes/water_tile.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b10f6qxsoe4t0" path="res://scenes/logs/log_long.tscn" id="14_ca42v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
+texture = ExtResource("5_ryrav")
+texture_region_size = Vector2i(32, 10)
+2:5/0 = 0
+3:19/0 = 0
+2:13/0 = 0
+3:17/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ir15t"]
+tile_size = Vector2i(32, 10)
+sources/0 = SubResource("TileSetAtlasSource_trtic")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(288, 50)
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_ryrav")
+right_edge = 150
+left_edge = -150
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, -62)
+zoom = Vector2(4, 3.5)
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8//f/AAACAAUAAAD9//f/AAACAAUAAAD9//T/AAACAAUAAAD9//X/AAACAAUAAAD9//b/AAACAAUAAAD8//T/AAACAAUAAAD8//X/AAACAAUAAAD8//b/AAACAAUAAAD+//T/AAACAAUAAAD+//X/AAACAAUAAAD+//b/AAACAAUAAAD+//f/AAACAAUAAAD///T/AAACAAUAAAD///X/AAACAAUAAAD///b/AAACAAUAAAD///f/AAACAAUAAAAAAPT/AAACAAUAAAAAAPX/AAACAAUAAAAAAPb/AAACAAUAAAAAAPf/AAACAAUAAAABAPT/AAACAAUAAAABAPX/AAACAAUAAAABAPb/AAACAAUAAAABAPf/AAACAAUAAAACAPT/AAACAAUAAAACAPX/AAACAAUAAAACAPb/AAACAAUAAAACAPf/AAACAAUAAAADAPT/AAACAAUAAAADAPX/AAACAAUAAAADAPb/AAACAAUAAAADAPf/AAACAAUAAAAEAPT/AAACAAUAAAAEAPX/AAACAAUAAAAEAPb/AAACAAUAAAAEAPf/AAACAAUAAAD8//j/AAACAAUAAAD9//j/AAACAAUAAAD+//j/AAACAAUAAAD///j/AAACAAUAAAAAAPj/AAACAAUAAAABAPj/AAACAAUAAAACAPj/AAACAAUAAAADAPj/AAACAAUAAAAEAPj/AAACAAUAAAD8//P/AAACAAUAAAD9//P/AAADABMAAAD+//P/AAACAAUAAAD///P/AAADABMAAAAAAPP/AAACAAUAAAABAPP/AAADABMAAAACAPP/AAACAAUAAAADAPP/AAADABMAAAAEAPP/AAACAAUAAAD8//n/AAADABEAADD9//n/AAADABEAADD+//n/AAADABEAADD///n/AAADABEAADAAAPn/AAADABEAADABAPn/AAADABEAADACAPn/AAADABEAADADAPn/AAADABEAADAEAPn/AAADABEAADD8//r/AAACAA0AAAD8//v/AAACAA0AAAD8//z/AAACAA0AAAD8//3/AAACAA0AAAD8//7/AAACAA0AAAD8////AAACAA0AAAD9//r/AAACAA0AAAD9//v/AAACAA0AAAD9//z/AAACAA0AAAD9//3/AAACAA0AAAD9//7/AAACAA0AAAD9////AAACAA0AAAD+//r/AAACAA0AAAD+//v/AAACAA0AAAD+//z/AAACAA0AAAD+//3/AAACAA0AAAD+//7/AAACAA0AAAD+////AAACAA0AAAD///r/AAACAA0AAAD///v/AAACAA0AAAD///z/AAACAA0AAAD///3/AAACAA0AAAD///7/AAACAA0AAAD/////AAACAA0AAAAAAPr/AAACAA0AAAAAAPv/AAACAA0AAAAAAPz/AAACAA0AAAAAAP3/AAACAA0AAAAAAP7/AAACAA0AAAAAAP//AAACAA0AAAABAPr/AAACAA0AAAABAPv/AAACAA0AAAABAPz/AAACAA0AAAABAP3/AAACAA0AAAABAP7/AAACAA0AAAABAP//AAACAA0AAAACAPr/AAACAA0AAAACAPv/AAACAA0AAAACAPz/AAACAA0AAAACAP3/AAACAA0AAAACAP7/AAACAA0AAAACAP//AAACAA0AAAADAPr/AAACAA0AAAADAPv/AAACAA0AAAADAPz/AAACAA0AAAADAP3/AAACAA0AAAADAP7/AAACAA0AAAADAP//AAACAA0AAAAEAPr/AAACAA0AAAAEAPv/AAACAA0AAAAEAPz/AAACAA0AAAAEAP3/AAACAA0AAAAEAP7/AAACAA0AAAAEAP//AAACAA0AAAD8/wAAAAADABEAAAD9/wAAAAADABEAAAD+/wAAAAADABEAAAD//wAAAAADABEAAAAAAAAAAAADABEAAAABAAAAAAADABEAAAACAAAAAAADABEAAAADAAAAAAADABEAAAAEAAAAAAADABEAAAD8/wEAAAADABMAAAD9/wEAAAADABMAAAD+/wEAAAADABMAAAD//wEAAAADABMAAAAAAAEAAAADABMAAAABAAEAAAADABMAAAACAAEAAAADABMAAAADAAEAAAADABMAAAAEAAEAAAADABMAAAD8/wIAAAADABMAAAD9/wIAAAADABMAAAD+/wIAAAADABMAAAD//wIAAAADABMAAAAAAAIAAAADABMAAAABAAIAAAADABMAAAACAAIAAAADABMAAAADAAIAAAADABMAAAAEAAIAAAADABMAAAA=")
+tile_set = SubResource("TileSet_ir15t")
+metadata/_edit_lock_ = true
+
+[node name="terrains" type="Node2D" parent="."]
+position = Vector2(-128, -130)
+metadata/_edit_lock_ = true
+
+[node name="water_tile" parent="terrains" instance=ExtResource("13_kvuet")]
+
+[node name="water_tile2" parent="terrains" instance=ExtResource("13_kvuet")]
+position = Vector2(64, 0)
+
+[node name="water_tile3" parent="terrains" instance=ExtResource("13_kvuet")]
+position = Vector2(256, 0)
+
+[node name="water_tile4" parent="terrains" instance=ExtResource("13_kvuet")]
+position = Vector2(192, 0)
+
+[node name="water_tile5" parent="terrains" instance=ExtResource("13_kvuet")]
+position = Vector2(128, 0)
+
+[node name="water_tile6" parent="terrains" instance=ExtResource("13_kvuet")]
+
+[node name="CollisionShape2D" parent="terrains/water_tile6" index="0"]
+position = Vector2(144, 35)
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="car" parent="enemies" instance=ExtResource("4_7jktm")]
+position = Vector2(-128, -50)
+
+[node name="car2" parent="enemies" instance=ExtResource("4_7jktm")]
+position = Vector2(32, -50)
+
+[node name="left_car" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(-96, -10)
+collision_layer = 1
+
+[node name="left_car2" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(64, -10)
+collision_layer = 1
+
+[node name="left_car_alt" parent="enemies" instance=ExtResource("7_gee14")]
+position = Vector2(-96, -40)
+
+[node name="left_car_alt2" parent="enemies" instance=ExtResource("7_gee14")]
+position = Vector2(32, -40)
+
+[node name="right_car_alt" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(-96, -20)
+collision_layer = 1
+
+[node name="right_car_alt2" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(64, -20)
+collision_layer = 1
+
+[node name="truck" parent="enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(-96, -60)
+
+[node name="truck2" parent="enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(32, -60)
+
+[node name="logs" type="Node2D" parent="."]
+
+[node name="row1" type="Node2D" parent="logs"]
+
+[node name="log" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(-64, -80)
+
+[node name="log2" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(0, -80)
+
+[node name="log3" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(-32, -80)
+
+[node name="log4" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(64, -80)
+
+[node name="log5" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(128, -80)
+
+[node name="log6" parent="logs/row1" instance=ExtResource("11_kvpfn")]
+position = Vector2(96, -80)
+
+[node name="row2" type="Node2D" parent="logs"]
+
+[node name="log_medium" parent="logs/row2" instance=ExtResource("12_trtic")]
+position = Vector2(0, -90)
+SPEED = 40
+WIDTH_OFFSET = 30
+
+[node name="log_medium2" parent="logs/row2" instance=ExtResource("12_trtic")]
+position = Vector2(-64, -90)
+SPEED = 40
+WIDTH_OFFSET = 30
+
+[node name="log_medium3" parent="logs/row2" instance=ExtResource("12_trtic")]
+position = Vector2(160, -90)
+SPEED = 40
+WIDTH_OFFSET = 30
+
+[node name="log_medium4" parent="logs/row2" instance=ExtResource("12_trtic")]
+position = Vector2(96, -90)
+SPEED = 40
+WIDTH_OFFSET = 30
+
+[node name="row3" type="Node2D" parent="logs"]
+
+[node name="log_very_long" parent="logs/row3" instance=ExtResource("13_ir15t")]
+position = Vector2(-32, -100)
+
+[node name="row4" type="Node2D" parent="logs"]
+
+[node name="log" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(-64, -110)
+SPEED = -15
+
+[node name="log2" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(0, -110)
+SPEED = -15
+
+[node name="log3" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(-32, -110)
+SPEED = -15
+
+[node name="log4" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(64, -110)
+SPEED = -15
+
+[node name="log5" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(128, -110)
+SPEED = -15
+
+[node name="log6" parent="logs/row4" instance=ExtResource("11_kvpfn")]
+position = Vector2(96, -110)
+SPEED = -15
+
+[node name="row5" type="Node2D" parent="logs"]
+
+[node name="log_long" parent="logs/row5" instance=ExtResource("14_ca42v")]
+position = Vector2(64, -120)
+SPEED = -40
+WIDTH_OFFSET = 30
+
+[node name="log_long2" parent="logs/row5" instance=ExtResource("14_ca42v")]
+position = Vector2(-64, -120)
+SPEED = -40
+WIDTH_OFFSET = 30
+
+[node name="frog" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(-32, 10)
+
+[editable path="terrains/water_tile6"]

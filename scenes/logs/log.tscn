@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bohe0v4p4iqt0"]
+
+[ext_resource type="Texture2D" uid="uid://6rsefsxg8mxh" path="res://assets/sprites/frogger_enemies.png" id="1_rewus"]
+[ext_resource type="Script" uid="uid://117phmagrfki" path="res://scenes/logs/log.gd" id="1_s04jx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s04jx"]
+atlas = ExtResource("1_rewus")
+region = Rect2(1, 13, 16, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ko8"]
+size = Vector2(8, 8)
+
+[node name="log" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_s04jx")
+WIDTH_OFFSET = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 5)
+texture = SubResource("AtlasTexture_s04jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_h1ko8")

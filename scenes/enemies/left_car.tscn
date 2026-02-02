@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc1rsoaagjs7x"]
+
+[ext_resource type="PackedScene" uid="uid://djbfr6r0lea4l" path="res://scenes/enemies/car.tscn" id="1_601pt"]
+[ext_resource type="Texture2D" uid="uid://be2dwjkoa1pbc" path="res://assets/textures/orange_car.tres" id="2_oyxu3"]
+
+[node name="left_car" instance=ExtResource("1_601pt")]
+SPEED = -30
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_oyxu3")

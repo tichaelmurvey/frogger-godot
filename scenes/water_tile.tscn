@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://5lill0vmn1re"]
+
+[ext_resource type="Script" uid="uid://dllc4tfggxmvs" path="res://scenes/water.gd" id="1_p8xhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
+size = Vector2(32, 10)
+
+[node name="water_tile" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_p8xhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_kvpfn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c1ai302bkkqkb"]
+
+[ext_resource type="Texture2D" uid="uid://6rsefsxg8mxh" path="res://assets/sprites/frogger_enemies.png" id="1_50eod"]
+
+[resource]
+atlas = ExtResource("1_50eod")
+region = Rect2(101, 1, 16, 7)

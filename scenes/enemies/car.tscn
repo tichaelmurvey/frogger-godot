@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://djbfr6r0lea4l"]
+
+[ext_resource type="Texture2D" uid="uid://cjc4xmbss5x4" path="res://assets/textures/pink_car.tres" id="1_7822p"]
+[ext_resource type="Script" uid="uid://o77jqti2wh83" path="res://scenes/enemies/car.gd" id="1_uoj53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k61xc"]
+size = Vector2(14, 7)
+
+[node name="car" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_uoj53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 5)
+shape = SubResource("RectangleShape2D_k61xc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 5)
+texture = ExtResource("1_7822p")

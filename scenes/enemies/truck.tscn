@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://4vcr3pmdoljc"]
+
+[ext_resource type="PackedScene" uid="uid://dc1rsoaagjs7x" path="res://scenes/enemies/left_car.tscn" id="1_xyupd"]
+[ext_resource type="Texture2D" uid="uid://cam5x0n1648qp" path="res://assets/textures/truck.tres" id="2_o74pg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyupd"]
+size = Vector2(32, 7)
+
+[node name="truck" instance=ExtResource("1_xyupd")]
+collision_layer = 1
+SPEED = -20
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_xyupd")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(16, 5)
+texture = ExtResource("2_o74pg")

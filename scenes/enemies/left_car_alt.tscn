@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://buqdxefyfl0gb"]
+
+[ext_resource type="PackedScene" uid="uid://dc1rsoaagjs7x" path="res://scenes/enemies/left_car.tscn" id="1_yqaem"]
+[ext_resource type="Texture2D" uid="uid://ktr54jrwrpsk" path="res://assets/textures/green_car.tres" id="2_jkcao"]
+
+[node name="left_car_alt" instance=ExtResource("1_yqaem")]
+collision_layer = 1
+SPEED = -20
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_jkcao")
+region_enabled = true
+region_rect = Rect2(59, 1, 16, 7)
