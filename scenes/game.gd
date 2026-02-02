@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameEnv.death_start.connect(shake_camera)
 	pass # Replace with function body.
 
-func shake_camera() -> void:
+func shake_camera(reason: String) -> void:
 	shake_intensity = MAX_SHAKE_INTENSITY
 
 func _process(delta: float) -> void:

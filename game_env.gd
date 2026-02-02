@@ -15,10 +15,10 @@ var in_freeze = false
 func _ready() -> void:
 	game_speed = INITIAL_GAME_SPEED
 
-func reset():
+func handle_death(reason : String):
 	GameEnv.game_speed = 0.1
 	in_freeze = true
-	death_start.emit()
+	death_start.emit(reason)
 	await get_tree().create_timer(DEATH_TIME).timeout
 	in_freeze = false
 	reset_game.emit()
