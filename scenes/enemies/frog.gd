@@ -49,14 +49,15 @@ func _process(delta: float) -> void:
 	check_drowned()
 
 func get_hit():
-	print("Got hit! ow!")
 	particles.emitting = true
-	die()
+	GameEnv.handle_death("CAR")
+
+func drown():
+	GameEnv.handle_death("WATER")
 
 func die():
 	print("die!")
-	
-	GameEnv.reset()
+	GameEnv.handle_death("OTHER")
 
 func reset():
 	position = GameEnv.starting_pos
@@ -89,7 +90,7 @@ func remove_log(log : MyLog):
 
 func check_drowned():
 	if in_water and my_log == null:
-		die()
+		drown()
 
 func check_out_of_bounds():
 	if position.x > GameEnv.game.right_edge:

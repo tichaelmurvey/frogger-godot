@@ -1,17 +1,25 @@
-[gd_scene load_steps=19 format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene load_steps=29 format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://djbfr6r0lea4l" path="res://scenes/enemies/car.tscn" id="4_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dncfit7dgyodg" path="res://assets/sprites/frogger_background.png" id="5_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dc1rsoaagjs7x" path="res://scenes/enemies/left_car.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://buqdxefyfl0gb" path="res://scenes/enemies/left_car_alt.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://dg6bhcdtc2474" path="res://scenes/enemies/right_car_alt.tscn" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://4vcr3pmdoljc" path="res://scenes/enemies/truck.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bohe0v4p4iqt0" path="res://scenes/logs/log.tscn" id="11_kvpfn"]
 [ext_resource type="Script" uid="uid://bxjy8mf3qdsod" path="res://scenes/haze.gd" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cdy4i1j63q8t5" path="res://scenes/logs/log_medium.tscn" id="12_trtic"]
+[ext_resource type="AudioStream" uid="uid://dvjcyhrj2x4fn" path="res://assets/sfx/frogtality.tres" id="13_ca42v"]
 [ext_resource type="PackedScene" uid="uid://dqk8ppfj3an7r" path="res://scenes/logs/log_very_long.tscn" id="13_ir15t"]
 [ext_resource type="PackedScene" uid="uid://5lill0vmn1re" path="res://scenes/water_tile.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b10f6qxsoe4t0" path="res://scenes/logs/log_long.tscn" id="14_ca42v"]
 [ext_resource type="Script" uid="uid://mt0dqtqnwfog" path="res://scenes/logs/lilypad.gd" id="14_ir15t"]
+[ext_resource type="AudioStream" uid="uid://bdtsb0n1u8w0d" path="res://assets/sfx/carkill.mp3" id="14_rysoc"]
 [ext_resource type="Texture2D" uid="uid://dglndmqkfy177" path="res://assets/sprites/frogger_frog.png" id="14_trtic"]
+[ext_resource type="Script" uid="uid://ce53v2fyqc7n7" path="res://scenes/death_sound.gd" id="15_ca42v"]
+[ext_resource type="AudioStream" uid="uid://ch3gibuund7kf" path="res://assets/sfx/waterkill.mp3" id="15_ir15t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("5_ryrav")
@@ -43,6 +51,17 @@ border_width_right = 200
 border_width_bottom = 200
 border_color = Color(0.51527405, 0.094889335, 0.11727198, 1)
 border_blend = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ssvqc"]
+streams_count = 2
+stream_0/stream = ExtResource("13_ca42v")
+stream_1/stream = ExtResource("14_rysoc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rysoc"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("15_ir15t")
+stream_1/stream = ExtResource("13_ca42v")
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ryrav")
@@ -87,7 +106,55 @@ shape = SubResource("RectangleShape2D_kvuet")
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="car" parent="enemies" instance=ExtResource("4_7jktm")]
-position = Vector2(-81, -10)
+position = Vector2(-96, -10)
+
+[node name="car2" parent="enemies" instance=ExtResource("4_7jktm")]
+position = Vector2(-128, -10)
+
+[node name="car3" parent="enemies" instance=ExtResource("4_7jktm")]
+position = Vector2(32, -10)
+
+[node name="car4" parent="enemies" instance=ExtResource("4_7jktm")]
+position = Vector2(0, -10)
+
+[node name="left_car_alt" parent="enemies" instance=ExtResource("7_gee14")]
+position = Vector2(-64, -40)
+
+[node name="left_car_alt2" parent="enemies" instance=ExtResource("7_gee14")]
+position = Vector2(0, -40)
+
+[node name="left_car_alt3" parent="enemies" instance=ExtResource("7_gee14")]
+position = Vector2(-96, -40)
+
+[node name="truck" parent="enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(0, -60)
+
+[node name="truck2" parent="enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(-96, -60)
+
+[node name="right_car_alt" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(0, -30)
+
+[node name="right_car_alt2" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(32, -20)
+
+[node name="right_car_alt3" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(-64, -20)
+
+[node name="left_car" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(64, -50)
+
+[node name="left_car2" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(-128, -50)
+
+[node name="right_car_alt4" parent="enemies" instance=ExtResource("8_0tnpc")]
+position = Vector2(96, -30)
+
+[node name="left_car3" parent="enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(-32, -50)
+
+[node name="truck3" parent="enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(64, -60)
 
 [node name="logs" type="Node2D" parent="."]
 
@@ -204,6 +271,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="haze" type="Panel" parent="overlay/Control"]
 visible = false
@@ -215,5 +283,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
 script = ExtResource("12_dinhu")
+metadata/_edit_lock_ = true
+
+[node name="carkill" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ssvqc")
+script = ExtResource("15_ca42v")
+DEATH_TYPE = "CAR"
+
+[node name="waterkill" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_rysoc")
+script = ExtResource("15_ca42v")
+DEATH_TYPE = "WATER"
 
 [editable path="terrains/water_tile6"]

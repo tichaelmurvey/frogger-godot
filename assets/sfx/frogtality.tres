@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://dvjcyhrj2x4fn"]
+
+[ext_resource type="AudioStream" uid="uid://b6dq5f7jpuf0l" path="res://assets/sfx/frogtality1.mp3" id="1_wlguv"]
+[ext_resource type="AudioStream" uid="uid://c8tx5mqa2d4i1" path="res://assets/sfx/frogtality2.mp3" id="2_ye0io"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_wlguv")
+stream_1/stream = ExtResource("2_ye0io")
