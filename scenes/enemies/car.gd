@@ -1,8 +1,8 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var SPEED = 30
 @export var starting_pos : Vector2
-
+var velocity : Vector2
 func _ready() -> void:
 	velocity = Vector2(SPEED, 0)
 	starting_pos = position
@@ -10,10 +10,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# print("car physics process")
-	var collisions = move_and_collide(velocity*GameEnv.game_speed*delta)
-
-	if collisions and collisions.get_collider() is Frog:
-		collisions.get_collider().get_hit()
+	position += velocity*GameEnv.game_speed*delta
 	position.y = starting_pos.y
 	if position.x > GameEnv.game.right_edge:
 		position.x = GameEnv.game.left_edge
@@ -22,3 +19,8 @@ func _physics_process(delta: float) -> void:
 
 func reset():
 	velocity = Vector2(SPEED, 0)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Frog:
+		body.get_hit()
