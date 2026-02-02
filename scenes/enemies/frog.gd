@@ -49,12 +49,12 @@ func _process(delta: float) -> void:
 	check_drowned()
 
 func get_hit():
-	print("Got hit! ow!")
+	#print("Got hit! ow!")
 	particles.emitting = true
 	die()
 
 func die():
-	print("die!")
+	#print("die!")
 	
 	GameEnv.reset()
 
