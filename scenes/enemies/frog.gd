@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 		input_direction = Vector2.RIGHT
 		animation_manager.animation = "right"
 	if input_direction != Vector2.ZERO:
+		$"step".play()
 		movement = input_direction * STEP_SIZE	
 	
 	# Handle movement on log
