@@ -65,14 +65,18 @@ particle_flag_disable_z = true
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
 spread = 180.0
-initial_velocity_min = 21.47
-initial_velocity_max = 68.68
+initial_velocity_min = 51.51
+initial_velocity_max = 98.72
 gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.43137255, 0.6117647, 0.25882354, 1)
 
-[node name="frog" type="CharacterBody2D" unique_id=1975247723 node_paths=PackedStringArray("particles")]
+[node name="frog" type="CharacterBody2D" unique_id=1975247723 node_paths=PackedStringArray("particles", "sprite")]
 collision_mask = 0
 script = ExtResource("1_kosjv")
 particles = NodePath("GPUParticles2D")
+sprite = NodePath("sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520148518]
 position = Vector2(16, 4.5)
@@ -95,7 +99,7 @@ shape = SubResource("RectangleShape2D_lohqt")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=643679422]
 position = Vector2(16, 5)
 emitting = false
-amount = 20
+amount = 100
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_kosjv")

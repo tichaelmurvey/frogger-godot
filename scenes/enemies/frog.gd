@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var STEP_SIZE = Vector2(16, 10)
 @export var particles:GPUParticles2D
+@export var sprite:AnimatedSprite2D
 var animation_manager : AnimatedSprite2D
 
 var in_water = false
@@ -51,6 +52,7 @@ func _process(delta: float) -> void:
 func get_hit():
 	#print("Got hit! ow!")
 	particles.emitting = true
+	sprite.visible = false
 	die()
 
 func die():
