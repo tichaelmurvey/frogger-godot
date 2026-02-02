@@ -6,6 +6,7 @@ var level = 1
 var DEATH_TIME = 1.0
 var game_speed = 0
 var starting_pos : Vector2
+signal death_start
 signal reset_game
 signal level_up
 var frog : Frog
@@ -17,6 +18,7 @@ func _ready() -> void:
 func reset():
 	GameEnv.game_speed = 0.1
 	in_freeze = true
+	death_start.emit()
 	await get_tree().create_timer(DEATH_TIME).timeout
 	in_freeze = false
 	reset_game.emit()
