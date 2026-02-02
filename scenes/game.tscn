@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene load_steps=21 format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dqk8ppfj3an7r" path="res://scenes/logs/log_very_long.tscn" id="13_ir15t"]
 [ext_resource type="PackedScene" uid="uid://5lill0vmn1re" path="res://scenes/water_tile.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b10f6qxsoe4t0" path="res://scenes/logs/log_long.tscn" id="14_ca42v"]
+[ext_resource type="Script" uid="uid://mt0dqtqnwfog" path="res://scenes/logs/lilypad.gd" id="14_ir15t"]
+[ext_resource type="Texture2D" uid="uid://dglndmqkfy177" path="res://assets/sprites/frogger_frog.png" id="14_trtic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("5_ryrav")
@@ -28,6 +30,13 @@ sources/0 = SubResource("TileSetAtlasSource_trtic")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
 size = Vector2(288, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("14_trtic")
+region = Rect2(110, 1, 16, 11)
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ryrav")
@@ -153,6 +162,7 @@ WIDTH_OFFSET = 30
 
 [node name="log_very_long" parent="logs/row3" instance=ExtResource("13_ir15t")]
 position = Vector2(-32, -100)
+SPEED = -20
 
 [node name="row4" type="Node2D" parent="logs"]
 
@@ -193,6 +203,21 @@ SPEED = -40
 WIDTH_OFFSET = 30
 
 [node name="frog" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(-32, 10)
+position = Vector2(2, -71)
+
+[node name="lilypad" type="Area2D" parent="."]
+position = Vector2(17, -124)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("14_ir15t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lilypad"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="Sprite2D" type="Sprite2D" parent="lilypad"]
+position = Vector2(-1.090909, -0.75)
+scale = Vector2(0.8636364, 0.8636364)
+texture = SubResource("AtlasTexture_ca42v")
 
 [editable path="terrains/water_tile6"]

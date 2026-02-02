@@ -12,6 +12,7 @@ func _ready() -> void:
 	animation_manager = $sprite
 	starting_pos = position
 	GameEnv.reset_game.connect(reset)
+	GameEnv.level_up.connect(reset)
 	GameEnv.frog = self
 
 func _process(delta: float) -> void:
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 	
 	# Handle movement on log
 	if my_log is MyLog:
-		movement.x += my_log.SPEED*delta
+		movement.x += my_log.SPEED*GameEnv.game_speed*delta
 	
 	position += movement
 
@@ -55,6 +56,9 @@ func reset():
 	in_water = false
 
 func _on_frog_butt_area_entered(area: Area2D) -> void:
+	print("area entered!")
+	if area is Lilypad:
+		GameEnv.beat_level()
 	if area is MyLog:
 		set_log(area)
 

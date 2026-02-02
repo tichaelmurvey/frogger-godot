@@ -9,7 +9,7 @@ func _ready() -> void:
 	GameEnv.reset_game.connect(reset)
 
 func _physics_process(delta: float) -> void:
-	var collisions = move_and_collide(velocity*delta)
+	var collisions = move_and_collide(velocity*GameEnv.game_speed*delta)
 
 	if collisions and collisions.get_collider() is Frog:
 		collisions.get_collider().get_hit()
