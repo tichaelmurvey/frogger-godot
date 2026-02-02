@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://jco6gfwscdr1"]
+[gd_scene load_steps=18 format=4 uid="uid://jco6gfwscdr1"]
 
 [ext_resource type="Script" uid="uid://bd38iknprr7d5" path="res://scenes/game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dxbtiphfik0fm" path="res://scenes/enemies/frog.tscn" id="2_feb5d"]
@@ -33,6 +33,15 @@ size = Vector2(32, 10)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
 atlas = ExtResource("14_trtic")
 region = Rect2(110, 1, 16, 11)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpfn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 200
+border_width_top = 200
+border_width_right = 200
+border_width_bottom = 200
+border_color = Color(0.51527405, 0.094889335, 0.11727198, 1)
+border_blend = true
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ryrav")
@@ -184,5 +193,24 @@ shape = SubResource("RectangleShape2D_ir15t")
 position = Vector2(-1.090909, -0.75)
 scale = Vector2(0.8636364, 0.8636364)
 texture = SubResource("AtlasTexture_ca42v")
+
+[node name="overlay" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="overlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="overlay/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
 
 [editable path="terrains/water_tile6"]
